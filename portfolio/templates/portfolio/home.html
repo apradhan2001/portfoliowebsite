@@ -1,0 +1,35 @@
+{% extends 'portfolio/base.html'%}
+
+{% block content %}
+
+    <div class = 'container text-center'>
+
+    <b><h1>Ansh's Portfolio</h1></b>
+    {% load static %}
+    <br>
+    <img src = "{% static 'portfolio/IMG_3561.jpg'%}", width = '600', height = '400'>
+    <br>
+    <br>
+    <b>Hi! My name is Ansh and I am a fourth year Aerospace Engineering student at UCSD with a minor in Business. Below are some of the things that I have been working
+    on throughout my time in college.</b>
+    <br>
+    <br>
+
+
+    {% for project in projects %}
+
+    <u><h3>{{ project.title }}</h3></u>
+    <p1>{{ project.description }}</p1>
+    <br>
+    <img src = "{{ project.image.url }}", width = '300', height = '300'>
+    <br>
+    <br>
+    {% if project.url %}
+    <br>
+    <a href = "{{ project.image.url }}", width = '300', height = '300'>Link</a>
+    <br>
+    {% endif %}
+    {% endfor %}
+
+  {% endblock %}
+</div>
